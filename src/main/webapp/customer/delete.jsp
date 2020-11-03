@@ -22,12 +22,13 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Delete customer</h1>
-<p>
-    <a href="/customers" class="btn btn-primary">Back To Customer List</a>
-</p>
-<form method="post">
-    <h3>Are you sure?</h3>
+<center>
+    <h1>Delete customer</h1>
+    <p>
+        <a href="/customers" class="btn btn-primary">Back To Customer List</a>
+    </p>
+    <form method="post">
+        <h3>Are you sure?</h3>
         <table cellpadding="10px" border="1px">
             <tr>
                 <th colspan="2">Customer Information</th>
@@ -49,8 +50,9 @@
                 <td><img src="${requestScope["customer"].getImage()}" alt="Image" width="100px" height="100px"></td>
             </tr>
         </table>
-    <input type="submit" value="Delete customer" class="btn btn-danger">
-</form>
+        <input type="submit" value="Delete customer" class="btn btn-danger">
+    </form>
+</center>
 </body>
 <style>
     body {

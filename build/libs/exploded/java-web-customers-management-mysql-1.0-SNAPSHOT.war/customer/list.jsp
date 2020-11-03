@@ -23,30 +23,32 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Customers</h1>
-<p>
-    <a href="/customers?action=create" class="btn btn-success">Create new customer</a>
-</p>
-<table border="1" cellpadding="10px">
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th>Image</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-    <c:forEach items='${requestScope["customers"]}' var="customer">
+<center>
+    <h1>Customers</h1>
+    <p>
+        <a href="/customers?action=create" class="btn btn-success">Create new customer</a>
+    </p>
+    <table border="1" cellpadding="10px">
         <tr>
-            <th><a href="/customers?action=view&id=${customer.getId()}">${customer.getName()}</a></th>
-            <td>${customer.getEmail()}</td>
-            <td>${customer.getAddress()}</td>
-            <td><img src="${customer.getImage()}" alt="Image" width="100px" height="100px"></td>
-            <th><a href="/customers?action=edit&id=${customer.getId()}" class="btn btn-secondary">EDIT</a></th>
-            <th><a href="/customers?action=delete&id=${customer.getId()}" class="btn btn-danger">DELETE</a></th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
-    </c:forEach>
-</table>
+        <c:forEach items='${requestScope["customers"]}' var="customer">
+            <tr>
+                <th><a href="/customers?action=view&id=${customer.getId()}">${customer.getName()}</a></th>
+                <td>${customer.getEmail()}</td>
+                <td>${customer.getAddress()}</td>
+                <td><img src="${customer.getImage()}" alt="Image" width="100px" height="100px"></td>
+                <th><a href="/customers?action=edit&id=${customer.getId()}" class="btn btn-secondary">EDIT</a></th>
+                <th><a href="/customers?action=delete&id=${customer.getId()}" class="btn btn-danger">DELETE</a></th>
+            </tr>
+        </c:forEach>
+    </table>
+</center>
 </body>
 <style>
     body {

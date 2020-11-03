@@ -23,50 +23,52 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Create new customer</h1>
-<p>
-    <c:if test='${requestScope["message"] != null}'>
-        <span class="message">${requestScope["message"]}</span>
-    </c:if>
-</p>
-<p>
-    <a href="/customers" class="btn btn-primary">Back To Customer List</a>
-</p>
-<form method="post">
-    <fieldset>
-        <legend>Customer information</legend>
-        <table>
-            <tr>
-                <th>Name:</th>
-                <td><input type="text" name="name" id="name"></td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td><input type="text" name="email" id="email"></td>
-            </tr>
-            <tr>
-                <th>Address:</th>
-                <td><input type="text" name="address" id="address"></td>
-            </tr>
-            <tr>
-                <th>Image:</th>
-                <td>
-                    <input type="text" name="image" id="image">
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <img src="" alt="">
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Create customer" class="btn btn-success"></td>
-            </tr>
-        </table>
-    </fieldset>
-</form>
+<center>
+    <h1>Create new customer</h1>
+    <p>
+        <c:if test='${requestScope["message"] != null}'>
+            <span class="message">${requestScope["message"]}</span>
+        </c:if>
+    </p>
+    <p>
+        <a href="/customers" class="btn btn-primary">Back To Customer List</a>
+    </p>
+    <form method="post">
+        <fieldset>
+            <legend>Customer information</legend>
+            <table>
+                <tr>
+                    <th>Name:</th>
+                    <td><input type="text" name="name" id="name"></td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td><input type="text" name="email" id="email"></td>
+                </tr>
+                <tr>
+                    <th>Address:</th>
+                    <td><input type="text" name="address" id="address"></td>
+                </tr>
+                <tr>
+                    <th>Image:</th>
+                    <td>
+                        <input type="text" name="image" id="image">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <img src="" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Create customer" class="btn btn-success"></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</center>
 </body>
 <style>
     body {

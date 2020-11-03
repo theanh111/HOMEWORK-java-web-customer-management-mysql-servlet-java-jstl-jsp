@@ -23,56 +23,57 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Edit customer</h1>
-<p>
-    <c:if test='${requestScope["message"] != null}'>
-        <span class="message">${requestScope["message"]}</span>
-    </c:if>
-</p>
-<p>
-    <a href="/customers" class="btn btn-primary">Back To Customer List</a>
-</p>
-<form method="post">
-    <fieldset>
-        <legend>Customer information</legend>
-        <table>
-            <tr>
-                <th>Name:</th>
-                <td><input type="text" name="name" id="name" value="${requestScope["customer"].getName()}">
-                </td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td><input type="text" name="email" id="email" value="${requestScope["customer"].getEmail()}">
-                </td>
-            </tr>
-            <tr>
-                <th>Address:</th>
-                <td>
-                    <input type="text" name="address" id="address" value="${requestScope["customer"].getAddress()}">
-                </td>
-            </tr>
-            <tr>
-                <th>Image:</th>
-                <td>
-                    <input type="text" name="image" id="image" value="${requestScope["customer"].getImage()}">
-                </td>
-            </tr>
-            <tr>
-                <th>Preview Image:</th>
-                <td>
-                    <img src="${requestScope["customer"].getImage()}" alt="Image" width="100px" height="100px">
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Update customer" class="btn btn-success"></td>
-            </tr>
-        </table>
-    </fieldset>
-</form>
+<center>
+    <h1>Edit customer</h1>
+    <p>
+        <c:if test='${requestScope["message"] != null}'>
+            <span class="message">${requestScope["message"]}</span>
+        </c:if>
+    </p>
+    <p>
+        <a href="/customers" class="btn btn-primary">Back To Customer List</a>
+    </p>
+    <form method="post">
+        <fieldset>
+            <legend>Customer information</legend>
+            <table>
+                <tr>
+                    <th>Name:</th>
+                    <td><input type="text" name="name" id="name" value="${requestScope["customer"].getName()}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td><input type="text" name="email" id="email" value="${requestScope["customer"].getEmail()}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Address:</th>
+                    <td>
+                        <input type="text" name="address" id="address" value="${requestScope["customer"].getAddress()}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Image:</th>
+                    <td>
+                        <input type="text" name="image" id="image" value="${requestScope["customer"].getImage()}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Preview Image:</th>
+                    <td>
+                        <img src="${requestScope["customer"].getImage()}" alt="Image" width="100px" height="100px">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Update customer" class="btn btn-success"></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</center>
 </body>
-
 <style>
     body {
         font-family: Arial;
