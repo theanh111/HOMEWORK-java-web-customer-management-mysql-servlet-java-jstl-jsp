@@ -30,6 +30,7 @@
     </p>
     <table border="1" cellpadding="10px">
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Address</th>
@@ -39,6 +40,7 @@
         </tr>
         <c:forEach items='${requestScope["customers"]}' var="customer">
             <tr>
+                <th>${customer.getId()}</th>
                 <th><a href="/customers?action=view&id=${customer.getId()}">${customer.getName()}</a></th>
                 <td>${customer.getEmail()}</td>
                 <td>${customer.getAddress()}</td>

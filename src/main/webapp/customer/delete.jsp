@@ -34,6 +34,10 @@
                 <th colspan="2">Customer Information</th>
             </tr>
             <tr>
+                <th>ID:</th>
+                <td>${requestScope["customer"].getId()}</td>
+            </tr>
+            <tr>
                 <th>Name:</th>
                 <td>${requestScope["customer"].getName()}</td>
             </tr>

@@ -38,6 +38,11 @@
             <legend>Customer information</legend>
             <table>
                 <tr>
+                    <th>ID:</th>
+                    <td><input type="text" disabled value="${requestScope["customer"].getId()}">
+                    </td>
+                </tr>
+                <tr>
                     <th>Name:</th>
                     <td><input type="text" name="name" id="name" value="${requestScope["customer"].getName()}">
                     </td>

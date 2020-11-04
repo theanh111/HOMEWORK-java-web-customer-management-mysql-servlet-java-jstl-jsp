@@ -30,6 +30,10 @@
     </p>
     <table cellpadding="10px">
         <tr>
+            <td>ID:</td>
+            <td>${requestScope["customer"].getId()}</td>
+        </tr>
+        <tr>
             <td>Name:</td>
             <td>${requestScope["customer"].getName()}</td>
         </tr>
