@@ -12,9 +12,11 @@ public interface ICustomerDAO {
 
     void save(Customer customer);
 
-//    Customer findById(int id);
+    Customer searchById(int id);
 
     boolean update(int id, Customer customer) throws SQLException;
 
     boolean remove(int id) throws SQLException;
+
+    List<Customer> searchByName(String name);
 }

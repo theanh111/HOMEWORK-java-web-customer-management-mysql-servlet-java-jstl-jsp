@@ -8,23 +8,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Landing Page</title>
+    <title>Landing Page</title>
 </head>
 <body>
-<h1>Welcome to Customer Management - Web Application</h1>
-<form action="/customers">
-  <input type="submit" value="Let's start!">
-</form>
+<center>
+    <h1>Welcome to Customer Management - Web Application</h1>
+    <form action="/customers">
+        <input type="submit" value="Let's start!">
+    </form>
+</center>
 </body>
 <style>
-  body {
-    font-family: Arial;
-    font-size: larger;
-  }
-  input{
-    font-size: larger;
-    width: 150px;
-    height: 100px;
-  }
+    body {
+        font-family: Arial;
+        font-size: larger;
+    }
+
+    input {
+        font-size: larger;
+        width: 150px;
+        height: 100px;
+    }
 </style>
 </html>

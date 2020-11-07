@@ -1,12 +1,12 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: xxtyo
-  Date: 11/1/2020
-  Time: 10:54 PM
-  To change this template use File | Settings | File Templates.
+Created by IntelliJ IDEA.
+User: xxtyo
+Date: 11/1/2020
+Time: 10:54 PM
+To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;c   harset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Customer List</title>
@@ -28,6 +28,29 @@
     <p>
         <a href="/customers?action=create" class="btn btn-success">Create new customer</a>
     </p>
+    <form>
+        <input type="hidden" name="action" value="searchByName">
+        <input type="text" name="searchByName" id="searchByName">
+<%--        <select name="type" id="type">--%>
+<%--            <option value="id" name="searchId" id="searchId">ID</option>--%>
+<%--            <option value="name" name="searchName" id="searchName">Name</option>--%>
+<%--            <option value="address" name="searchAddress" id="searchAddress">Address</option>--%>
+<%--            <option value="email" name="searchEmail" id="searchEmail">Email</option>--%>
+<%--        </select>--%>
+        <input type="submit" class="btn btn-success" value="Search By Name">
+    </form>
+    <form>
+        <input type="hidden" name="action" value="searchById">
+        <input type="text" name="searchById" id="searchById">
+        <%--        <select name="type" id="type">--%>
+        <%--            <option value="id" name="searchId" id="searchId">ID</option>--%>
+        <%--            <option value="name" name="searchName" id="searchName">Name</option>--%>
+        <%--            <option value="address" name="searchAddress" id="searchAddress">Address</option>--%>
+        <%--            <option value="email" name="searchEmail" id="searchEmail">Email</option>--%>
+        <%--        </select>--%>
+        <input type="submit" class="btn btn-success" value="Search By Id">
+    </form>
+    <hr>
     <table border="1" cellpadding="10px">
         <tr>
             <th>ID</th>
@@ -52,14 +75,4 @@
     </table>
 </center>
 </body>
-<style>
-    body {
-        font-family: Arial;
-        font-size: larger;
-    }
-
-    th {
-        font-weight: bold;
-    }
-</style>
 </html>

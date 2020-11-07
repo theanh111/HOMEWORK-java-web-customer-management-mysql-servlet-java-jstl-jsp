@@ -1,7 +1,7 @@
 package controller;
 
+import javafx.scene.Parent;
 import model.Customer;
-import dao.ICustomerDAO;
 import dao.CustomerDAO;
 
 import javax.servlet.RequestDispatcher;
@@ -44,7 +44,11 @@ public class CustomerServlet extends HttpServlet {
                 }
                 break;
             case "delete":
-                deleteCustomer(request, response);
+                try {
+                    deleteCustomer(request, response);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
                 break;
             default:
                 break;
@@ -71,6 +75,20 @@ public class CustomerServlet extends HttpServlet {
                 break;
             case "view":
                 viewCustomer(request, response);
+                break;
+            case "searchById":
+                try {
+                    searchById(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "searchByName":
+                try {
+                    searchByName(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
                 listCustomers(request, response);
@@ -112,13 +130,7 @@ public class CustomerServlet extends HttpServlet {
         customerDAO.save(customer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/create.jsp");
         request.setAttribute("message", "New customer was created!");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        dispatcher.forward(request, response);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -183,15 +195,40 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
+    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        try {
-            customerDAO.remove(id);
-            response.sendRedirect("/customers");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        customerDAO.remove(id);
+        response.sendRedirect("/customers");
+    }
+
+    private void searchByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        String searchName = request.getParameter("searchByName");
+        System.out.println("ĐÂY LÀ" + searchName);
+        RequestDispatcher dispatcher;
+        if (searchName.equals("")) {
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+        } else {
+            List<Customer> customersByName = customerDAO.searchByName(searchName);
+            request.setAttribute("customers", customersByName);
+            dispatcher = request.getRequestDispatcher("customer/search.jsp");
+            dispatcher.forward(request, response);
         }
+
+    }
+
+    private void searchById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        int searchId = Integer.parseInt(request.getParameter("searchById"));
+        System.out.println("ĐÂY LÀ" + searchId);
+        Customer customerById = customerDAO.searchById(searchId);
+        RequestDispatcher dispatcher;
+        if (customerById == null) {
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+            System.out.println("error 404");
+        } else {
+            request.setAttribute("customer", customerById);
+            dispatcher = request.getRequestDispatcher("customer/view.jsp");
+            dispatcher.forward(request, response);
+        }
+
     }
 }
